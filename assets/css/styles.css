@@ -1,0 +1,14 @@
+/*
+por nombre de etiqueta
+id
+clases css
+*/
+
+
+#background {
+  opacity: .1;
+  position: absolute;
+  right: -66px;
+  top: -56px;
+  z-index: -1;
+}
