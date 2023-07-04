@@ -5,14 +5,59 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pokedex</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/33c3fc8b29.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body>
+<body class="fondo-pokemon-seleccionado">
   <img id="background" src="assets/img/background.png" alt="No esta">
-  <div>
-    <i class="fa-solid fa-arrow-left"></i>
-    <i class="fa-solid fa-list"></i>
-  </div>
+  <nav id="nav-principal">
+    <span onclick="mostrarPokemones()"><i class="fa-solid fa-arrow-left"></i></span>
+    <span><i class="fa-solid fa-list"></i></span>
+  </nav>
+  <section class="contenedor-pokemones" id="pokemones">
+  </section>
+  <section id="detalle-pokemon">
+    <div class="encabezado-detalle-pokemon">
+      <div class="titulo">
+        <h1 class="pokemon-name">Bulbasaur</h1>
+        <h3>#001</h3>
+      </div>
+      <div class="tipos">
+        <div class="tipo">Grass</div>
+        <div class="tipo">Poison</div>
+      </div>
+      <div class="imagen-pokemon">
+        <img src="http://www.serebii.net/pokemongo/pokemon/001.png" alt="">
+      </div>
+    </div>
+    <div class="cuerpo-detalles-pokemon">
+      <nav id="nav-secundario">
+        <div onclick="mostrarDetalle('about')" class="opcion active">About</div>
+        <div onclick="mostrarDetalle('stats')" class="opcion">Base Stats</div>
+        <div onclick="mostrarDetalle('evolutions')" class="opcion">Evolutions</div>
+        <div onclick="mostrarDetalle('moves')" class="opcion">Moves</div>
+      </nav>
+      <div class="contenido-detalle" id="about" style="display: block">
+        <div>
+          <label>Species</label>
+          <span>Seed</span>
+          <label>Height</label>
+          <span>2'3,6</span>
+          <label>Weight</label>
+          <span>15.2lb</span>
+          <label>Abilities</label>
+          <span>Overgrow</span>
+        </div>
+      </div>
+      <div class="contenido-detalle" id="stats">Base Stats</div>
+      <div class="contenido-detalle" id="evolutions">Evolutions</div>
+      <div class="contenido-detalle" id="moves">Moves</div>
+    </div>
+  </section>
+
+  <script src="assets/js/controlador.js"></script>
 </body>
 </html>
