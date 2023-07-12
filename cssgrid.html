@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .contenedor {
+      display: grid;
+      height: 100vh;
+      width: 100%;
+      grid-template-rows: repeat(3, 1fr);
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    .item {
+      border: 1px dashed black;
+      font-size: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #uno {
+      background-color: blue;
+      color: white;
+      grid-column-start: 1;
+      grid-column-end: 3;
+      grid-row-start: 1;
+      grid-row-end: 3;
+    }
+    #dos {
+      background-color: red;
+      color: white;
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+    }
+    #tres {
+      background-color: green;
+      color: white;
+      grid-area: 2 / 2 / 4 / 4;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <div class="item" id="uno">1</div>
+    <div class="item" id="dos">2</div>
+    <div class="item" id="tres">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+    <div class="item">8</div>
+    <div class="item">9</div>
+    <div class="item">10</div>
+    <div class="item">11</div>
+  </div>
+</body>
+</html>

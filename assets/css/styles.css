@@ -1,0 +1,185 @@
+/*
+por nombre de etiqueta
+id
+clases css
+*/
+
+
+#background {
+  opacity: .1;
+  position: absolute;
+  right: -66px;
+  top: -56px;
+  z-index: -1;
+}
+
+#nav-principal {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  font-size: 1.5rem;
+}
+
+#nav-secundario {
+  justify-content: space-between;
+  padding: 70px 30px 0px 30px;
+  display: flex;
+  border-bottom: 2px solid #eae4e4;
+}
+
+#nav-secundario .opcion {
+  color: #bcbcbc;
+  padding-bottom: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#nav-secundario .opcion.active {
+  color: #0c0c0c;
+  border-bottom: 3px solid rgb(3, 0, 32);
+}
+
+.contenedor-pokemones {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.card-pokemon {
+  height: 160px;
+  border-radius: 20px;
+  background-color: #e3e3e3;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.pokemon-imagen {
+  width: 100px;
+  margin-right: -20px;
+  z-index: 100;
+}
+
+.contenedor-informacion, .contenedor-imagen {
+  flex: 1;
+}
+
+.contenedor-informacion {
+  color: white;
+}
+
+.contenedor-informacion .tipo,  #detalle-pokemon .tipo {
+  border-radius: 45px;
+  background-color: #5ddfc5;
+  /* background-blend-mode: darken(.5); */
+  opacity: .7;
+  padding: 5px 10px;
+  font-size: .7rem;
+  margin-top: 5px;
+}
+
+.contenedor-imagen {
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.pokebola-pokemon {
+  position: absolute;
+  right: -19px;
+  bottom: -17px;
+  width: 111px;
+  z-index: 99;
+  /* filter: invert(1); */
+  opacity: .5;
+}
+
+#detalle-pokemon {
+  display: none;
+}
+
+#detalle-pokemon .titulo {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#detalle-pokemon .titulo h1 {
+  font-size: 2.4rem;
+}
+
+#detalle-pokemon .tipos {
+  display: flex;
+  column-gap: 10px;
+}
+#detalle-pokemon .tipo {
+  font-size: .9rem !important;
+}
+
+#detalle-pokemon .imagen-pokemon {
+  display: flex;
+  justify-content: center;
+}
+
+#detalle-pokemon .imagen-pokemon img{
+  width: 300px;
+}
+
+
+body {
+  background-color: white;
+  color: black;
+  margin:0;
+}
+
+/* .fondo-pokemon-seleccionado {
+  background-color: #4acfb1;
+  color: white;
+} */
+
+.cuerpo-detalles-pokemon {
+  width: 100%;
+  height: 60vh;
+  background-color: white;
+  color: black;
+  border-radius: 35px;
+  margin-top: -100px;
+}
+
+.encabezado-detalle-pokemon {
+  padding: 10px 20px;
+}
+
+.contenido-detalle {
+  padding: 20px;
+  display: none;
+}
+
+#about>div {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  column-gap: 10px;
+  row-gap: 27px;
+}
+
+#about label {
+  color: rgb(159, 159, 159);
+}
+
+.bar-background {
+  width: 100%;
+  background-color: #c8c8c8;
+}
+
+.bar-foreground {
+  width: 41%;
+  background-color: #ff6464;
+}
+
+.bar-background, .bar-foreground {
+  height: 5px;
+  border-radius: 20px;
+}
