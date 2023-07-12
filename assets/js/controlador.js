@@ -96,6 +96,14 @@ const renderizarDetallePokemon = (pokemon, color) => {
   document.querySelector('#detalle-pokemon .pokemon-name').innerHTML = pokemon.name;
   document.querySelector('#detalle-pokemon .imagen-pokemon img').setAttribute("src", pokemon.img);
   document.querySelector('body').style.backgroundColor = `#${color}`;
+
+  document.getElementById('pokemon-candy').innerHTML = pokemon.candy;
+  document.getElementById('pokemon-height').innerHTML = pokemon.height;
+  document.getElementById('pokemon-weight').innerHTML = pokemon.weight;
+  document.getElementById('pokemon-weaknesses').innerHTML = pokemon.weaknesses; 
+  document.getElementById('pokemon-num').innerHTML = `#${pokemon.num}`; 
+
+  document.getElementById('spawn-chance-bar').style.width = ((pokemon.spawn_chance/4)*100) + '%';
 }
 
 mostrarPokemones = () => {
@@ -104,6 +112,8 @@ mostrarPokemones = () => {
   document.getElementById("detalle-pokemon").style.display = "none";
   document.querySelector('body').classList.remove("fondo-pokemon-seleccionado");
 }
+
+
 //sincrona (Una instrucción despues de la otra)
   // a=1 (1min)
   // b=2 (2minn)
@@ -134,10 +144,72 @@ const restar = (x,y) => {
 }
 
 
-const mostrarDetalle = (id) => {
+const mostrarDetalle = (id, etiquetaOpcionMenuSeleccionado) => {
+  document.querySelectorAll("#nav-secundario div").forEach(etiqueta => {
+    etiqueta.classList.remove("active");
+  });
+  etiquetaOpcionMenuSeleccionado.classList.add("active");
+
   document.querySelectorAll('.contenido-detalle').forEach(etiqueta => {
     etiqueta.style.display = 'none';
   });
 
   document.getElementById(id).style.display = "block";
+}
+
+
+const guardarPokemon = async () => {
+
+  // Fire
+  // Water
+  // Electric
+  // Poison
+  // Grass
+  // Ground
+
+
+  const checkboxes = document.querySelectorAll('.clase-x[type=checkbox]:checked')
+  const types = [];
+  for (let i = 0; i < checkboxes.length; i++) {
+    types.push(checkboxes[i].value)
+  }
+
+
+  const pokemon = {
+    "_id": document.getElementById('num').value,
+    "id": document.getElementById('num').value,
+    "num": document.getElementById('num').value,
+    "name": document.getElementById('name').value,
+    "gender": document.querySelector('input[name="genero"]:checked').value,
+    "img": document.getElementById('imagen').value,
+    "type": types,
+    "height": document.getElementById('height').value,
+    "weight": document.getElementById('weight').value,
+    "candy": document.getElementById('candy').value,
+    "candy_count": document.getElementById('candy_count').value,
+    "egg": document.getElementById('egg').value,
+    "spawn_chance": document.getElementById('spawn_chance').value,
+    "avg_spawns": document.getElementById('avg_spawns').value,
+    "spawn_time": document.getElementById('spawn_time').value,
+    "multipliers": [
+        2.34
+    ],
+    "weaknesses": [
+        "Ground"
+    ],
+    "prev_evolution": [],
+    "next_evolution": []
+  };
+
+  let respuesta = await fetch(`http://localhost:3004/pokemones`, 
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json", //MIME type 
+      },
+      body: JSON.stringify(pokemon)
+    }
+  );
+  const pokemonGuardado = await respuesta.json();
+  console.log("Pokemon guardado", pokemonGuardado);
 }

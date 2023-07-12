@@ -168,3 +168,18 @@ body {
 #about label {
   color: rgb(159, 159, 159);
 }
+
+.bar-background {
+  width: 100%;
+  background-color: #c8c8c8;
+}
+
+.bar-foreground {
+  width: 41%;
+  background-color: #ff6464;
+}
+
+.bar-background, .bar-foreground {
+  height: 5px;
+  border-radius: 20px;
+}
